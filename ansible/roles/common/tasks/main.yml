@@ -3,6 +3,7 @@
     name:
       - openssh-server
       - curl
+      - git
     state: present
     update_cache: true
 

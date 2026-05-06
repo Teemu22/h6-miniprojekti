@@ -25,3 +25,56 @@ ohjelmat ja käynnistää SSH-palvelun yhdellä komennolla.
 3. Syötä käyttäjän salasana pyydettäessä: (BECOME password:)
 
 Playbook asentaa tarvittavat paketit ja käynnistää SSH-palvelun automaattisesti.
+
+## Koodi ja niiden tarkoitus
+
+- `site.yml` sisältö on verrattavissa navigaattoriin ja käytännössä se kertoo Ansiblelle mitä rooleja ajetaan ja mille koneille
+
+site.yml koodi:
+
+```bash
+- hosts:all
+  become: true
+  roles:
+    - common
+```
+- `main.yml` puolestaan sisältää kaikessa yksinkertaisuudessaan ohjeet, mitkä tekevät varsinaisen työn ja ohjaavat meidät perille asti
+
+main.yml koodi:
+
+```yaml
+- name: Install packages
+  apt:
+    name:
+      - openssh-server
+      - curl
+      - git
+    state: present
+    update_cache: true
+
+- name: Start SSH service
+  service:
+    name: ssh
+    state: started
+    enabled: true
+````
+
+- Projektissa käytettiin myös `ansible.cfg`-tiedostoa. Se määrittää Ansiblen oletusasetuksia ja kertoo Ansiblelle mitä inventory-tiedostoa käytetään.
+
+ansible.cfg:
+
+```ini
+[defaults]
+inventory = hosts.ini
+```
+
+- `hosts.ini` on hyvin ihmismäisesti selitettynä lista koneita, joita ansible hallitsee
+
+hosts.ini:
+
+```ini
+localhost ansible_connection=local
+
+[all:vars]
+ansible_python_interpreter=/usr/bin/python3
+```

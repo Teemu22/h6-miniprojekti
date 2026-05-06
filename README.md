@@ -78,3 +78,25 @@ localhost ansible_connection=local
 [all:vars]
 ansible_python_interpreter=/usr/bin/python3
 ```
+
+- Tämä kaikki on projektimme rakenne. Lopuksi pitää tietenkin ajaa ansible-playbook ja varmistaa idempotenssi, ajettuamme on hyvä aina todeta ettei mikään muuttunut ja tila on vakaa.
+
+## Lähteet
+
+Ansible Documentation – Introduction to Playbooks  
+https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html
+
+Ansible Documentation – apt module  
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html
+
+Ansible Documentation – service module  
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/service_module.html
+
+Ansible Documentation – Inventory  
+https://docs.ansible.com/ansible/latest/inventory_guide/intro_inventory.html
+
+Ansible Documentation – Ansible Configuration Settings  
+https://docs.ansible.com/ansible/latest/reference_appendices/config.html
+
+Tero Karvinen – Hello Ansible  
+https://terokarvinen.com/2023/hello-ansible/

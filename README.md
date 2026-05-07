@@ -1,4 +1,4 @@
-# h6-miniprojekti - Linux setup automation with Ansible
+# h6-miniprojekti - Linux keskeisten ohjelmien asennus ja käyttöönotto
 
 ## Kuvaus
 Tässä projektissa toteutetaan Linux-ympäristön automatisoitu käyttöönotto Ansiblea hyödyntäen. Playbook asentaa keskeiset

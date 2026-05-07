@@ -79,6 +79,20 @@ localhost ansible_connection=local
 ansible_python_interpreter=/usr/bin/python3
 ```
 
+````
+h6-miniprojekti/
+├── LICENSE
+├── README.md
+└── ansible/
+    ├── ansible.cfg
+    ├── hosts.ini
+    ├── site.yml
+    └── roles/
+        └── common/
+            └── tasks/
+                └── main.yml
+````
+
 - Tämä kaikki on projektimme rakenne. Lopuksi pitää tietenkin ajaa ansible-playbook ja varmistaa idempotenssi, ajettuamme on hyvä aina todeta ettei mikään muuttunut ja tila on vakaa.
 
 ## Lähteet
